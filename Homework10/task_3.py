@@ -10,3 +10,13 @@ def all_division(*arg1):
     for i in arg1[1:]:
         division /= i
     return division
+
+@pytest.mark.parametrize('numbers, result', [pytest.param
+        ((100, 2), 50, marks=pytest.mark.smoke),
+        ((100, 2, 5), 10),
+        ((10, 4), 2.5),
+        ((-100, 2), -50),
+        pytest.param((0, 0), None, marks=pytest.mark.skip('чиним'))])
+
+def test_division(numbers, result):
+    assert all_division(*numbers) == result

@@ -15,3 +15,21 @@ def all_division(*arg1):
     for i in arg1[1:]:
         division /= i
     return division
+
+@pytest.mark.smoke
+def test_division_positive():
+    assert all_division(100, 2) == 50
+
+@pytest.mark.smoke
+def test_division_multiple_divisors():
+    assert all_division(100, 2, 5) == 10
+
+def test_division_negative():
+    assert all_division(-100, 2) == -50
+
+def test_division_float():
+    assert all_division(10, 4) == 2.5
+
+def test_division_by_zero():
+    with pytest.raises(ZeroDivisionError):
+        all_division(10, 0)
