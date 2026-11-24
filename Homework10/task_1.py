@@ -13,8 +13,6 @@
 # aym jpvezfqexlv
 # iuy qnikkgxvxfxtxv
 
-
-
 import random
 
 
