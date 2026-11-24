@@ -13,7 +13,24 @@
 # aym jpvezfqexlv
 # iuy qnikkgxvxfxtxv
 
+
+
 import random
 
 
-# Здесь пишем код
+def generate_random_name():
+    letters = 'abcdefghijklmnopqrstuvwxyz'
+    while True:
+        words = []
+        for _ in range(2):
+            word = ''
+            for _ in range(random.randint(1, 15)):
+                word += random.choice(letters)
+            words.append(word)
+        yield ' '.join(words)
+
+gen = generate_random_name()
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
